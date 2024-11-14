@@ -11,8 +11,8 @@ import { TRPCReactProvider } from "~/trpc/react";
 import "~/app/globals.css";
 
 export const metadata: Metadata = {
-    title: "Crpto Asset Tracker",
-    description: "Track your favorite crypto assets",
+  title: "Crpto Asset Tracker",
+  description: "Track your favorite crypto assets",
 };
 
 export const viewport: Viewport = {
