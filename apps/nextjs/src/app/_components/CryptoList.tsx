@@ -17,7 +17,7 @@ const CryptoList = ({
 }) => {
   const [page, setPage] = useState(initialPage);
   const [sortField, setSortField] = useState("cmc_rank");
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
 
   const {
     data: listings,
