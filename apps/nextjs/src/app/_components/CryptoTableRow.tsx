@@ -29,7 +29,14 @@ const CryptoTableRow = ({ crypto }: CryptoTableRowProps) => {
           <div>
             <div className="font-medium">{crypto.name}</div>
             <div className="text-sm text-gray-500">
-              <span>{crypto.symbol}</span>
+               {/* on mobile hide symbol and show market cap */}
+                <span className="sm:hidden">
+                $
+                {/* if market cap > $1T show in trillions else billions */}
+                {(crypto.market_cap >= 1000000000000 ? 
+                    (crypto.market_cap / 1000000000000).toFixed(2) + " T" : (crypto.market_cap / 1000000000).toFixed(2) + " B")}
+                </span>
+                <span className="hidden sm:inline">{crypto.symbol}</span>
             </div>
           </div>
         </div>
