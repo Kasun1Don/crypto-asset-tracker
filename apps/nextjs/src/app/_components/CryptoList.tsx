@@ -1,11 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import { api } from "~/trpc/react";
+import PaginateList from "./PaginateList";
 
 const CryptoList = () => {
   const { data: listings } = api.listings.getListings.useQuery();
+
+  const [page, setPage] = useState(1);
+
+  // calculate total pages and paginated listings
+  const itemsPerPage = 25;
+  const totalPages = listings ? Math.ceil(listings.length / itemsPerPage) : 0;
+  const startIndex = (page - 1) * itemsPerPage;
+  const paginatedListings = listings?.slice(
+    startIndex,
+    startIndex + itemsPerPage,
+  );
 
   return (
     <div className="container mx-auto p-4">
@@ -20,7 +32,7 @@ const CryptoList = () => {
           </tr>
         </thead>
         <tbody>
-          {listings?.map((crypto) => (
+          {paginatedListings?.map((crypto) => (
             <tr key={crypto.symbol}>
               <td>{crypto.cmc_rank}</td>
               <td>{crypto.name}</td>
@@ -32,6 +44,11 @@ const CryptoList = () => {
           ))}
         </tbody>
       </table>
+      <PaginateList
+        currentPage={page}
+        totalPages={totalPages}
+        onPageChange={setPage}
+      />
     </div>
   );
 };
