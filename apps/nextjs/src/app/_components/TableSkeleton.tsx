@@ -28,8 +28,8 @@ const TableSkeleton = () => {
                 Market Cap
               </th>
               <th className="pl-1 text-right sm:p-2">
-                <span className="hidden sm:inline">24h Change</span>
-                <span className="sm:hidden">24h ∆</span>
+                <span className="hidden sm:inline">24h % Change</span>
+                <span className="sm:hidden">24h %</span>
               </th>
             </tr>
           </thead>
@@ -40,7 +40,7 @@ const TableSkeleton = () => {
                   <Skeleton className="h-4 w-8" />
                 </td>
                 <td className="max-w-32 p-2 sm:max-w-60">
-                  <div className="flex flex-col items-start">
+                  <div className="flex items-center gap-2">
                     <Skeleton className="h-8 w-8 rounded-full" />
                     <div>
                       <Skeleton className="h-4 w-24" />

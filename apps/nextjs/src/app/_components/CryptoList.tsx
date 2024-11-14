@@ -16,7 +16,7 @@ const CryptoList = ({
   initialPage?: number;
 }) => {
   const [page, setPage] = useState(initialPage);
-  const [sortField, setSortField] = useState("market_cap");
+  const [sortField, setSortField] = useState("cmc_rank");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
 
   const {
@@ -98,15 +98,15 @@ const CryptoList = ({
                       className={`${sortDir === "asc" ? "rotate-180" : ""}`}
                     />
                   )}
-                  <span className="hidden sm:inline"># Rank</span>
-                  <span className="sm:hidden">#</span>
+                  <span className="hidden md:inline"># Rank</span>
+                  <span className="md:hidden">#</span>
                 </div>
               </th>
               <th
-                className="cursor-pointer p-2 text-left"
+                className="cursor-pointer p-2 text-center sm:text-left"
                 onClick={() => handleSort("name")}
               >
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
                   {sortField === "name" && (
                     <Image
                       src="/purplet.svg"
@@ -120,10 +120,10 @@ const CryptoList = ({
                 </div>
               </th>
               <th
-                className="cursor-pointer text-right sm:p-2"
+                className="cursor-pointer text-center sm:p-2 sm:text-right"
                 onClick={() => handleSort("price")}
               >
-                <div className="flex items-center justify-end gap-2">
+                <div className="flex items-center justify-center gap-2 sm:justify-end">
                   {sortField === "price" && (
                     <Image
                       src="/purplet.svg"
@@ -171,10 +171,10 @@ const CryptoList = ({
                 </div>
               </th>
               <th
-                className="cursor-pointer pl-1 text-right sm:p-2"
+                className="cursor-pointer pl-1 text-center sm:p-2 sm:text-right"
                 onClick={() => handleSort("percent_change_24h")}
               >
-                <div className="flex items-center justify-end gap-2">
+                <div className="flex items-center justify-center gap-2 sm:justify-end">
                   {sortField === "percent_change_24h" && (
                     <Image
                       src="/purplet.svg"
@@ -184,8 +184,8 @@ const CryptoList = ({
                       className={`${sortDir === "asc" ? "rotate-180" : ""}`}
                     />
                   )}
-                  <span className="hidden sm:inline">24h Change</span>
-                  <span className="sm:hidden">24h ∆</span>
+                  <span className="hidden sm:inline">24h % Change</span>
+                  <span className="sm:hidden">24h %</span>
                 </div>
               </th>
             </tr>
