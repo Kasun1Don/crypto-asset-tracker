@@ -41,6 +41,7 @@
     ]
   },
   "dependencies": {
-    "axios": "^1.7.7"
+    "axios": "^1.7.7",
+    "cryptocurrency-icons": "^0.18.1"
   }
 }

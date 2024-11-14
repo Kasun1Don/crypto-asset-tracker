@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 
 import { api } from "~/trpc/react";
+import CryptoTableRow from "./CryptoTableRow";
 import PaginateList from "./PaginateList";
 
 const CryptoList = () => {
@@ -28,21 +29,17 @@ const CryptoList = () => {
             <th className="text-left">Rank</th>
             <th className="text-left">Name</th>
             <th className="text-right">Price</th>
+            <th className="hidden text-right sm:table-cell">Market Cap</th>
+            <th className="hidden text-right sm:table-cell">24h Volume</th>
             <th className="text-right">24h Change</th>
           </tr>
         </thead>
         <tbody>
           {paginatedListings?.map((crypto) => (
-            <tr key={crypto.symbol}>
-              <td>{crypto.cmc_rank}</td>
-              <td>{crypto.name}</td>
-              <td className="text-right">${crypto.price.toFixed(2)}</td>
-              <td className="text-right">
-                {crypto.percent_change_24h.toFixed(2)}%
-              </td>
-            </tr>
+            <CryptoTableRow key={crypto.symbol} crypto={crypto} />
           ))}
         </tbody>
+        <thead />
       </table>
       <PaginateList
         currentPage={page}
