@@ -13,27 +13,34 @@ import { Skeleton } from "@acme/ui/skeleton";
 
 const TableSkeleton = () => {
   return (
-    <div className="container mx-auto px-4 py-4">
+    <div className="container mx-auto px-1 py-4 sm:p-4">
       <div className="overflow-x-auto">
         <table className="min-w-full table-auto">
           <thead>
             <tr className="border-b">
-              <th className="min-w-20 p-2 text-left"># Rank</th>
+              <th className="sm:min-w-25 min-w-18 text-left"># Rank</th>
               <th className="p-2 text-left">Name</th>
-              <th className="p-2 text-right">Price</th>
-              <th className="p-2 text-right">Volume(24h)</th>
-              <th className="p-2 text-right">Market Cap</th>
-              <th className="p-2 text-right">24h Change</th>
+              <th className="text-right sm:p-2">Price</th>
+              <th className="hidden max-w-40 p-2 text-right sm:table-cell">
+                Volume(24h)
+              </th>
+              <th className="hidden p-2 text-right sm:table-cell">
+                Market Cap
+              </th>
+              <th className="pl-1 text-right sm:p-2">
+                <span className="hidden sm:inline">24h Change</span>
+                <span className="sm:hidden">24h ∆</span>
+              </th>
             </tr>
           </thead>
           <tbody>
             {Array.from({ length: 20 }).map((_, index) => (
               <tr key={index} className="border-b">
-                <td className="min-w-20 p-2">
+                <td className="min-w-16 p-2">
                   <Skeleton className="h-4 w-8" />
                 </td>
-                <td className="p-2">
-                  <div className="flex items-center gap-4">
+                <td className="max-w-32 p-2 sm:max-w-60">
+                  <div className="flex flex-col items-start">
                     <Skeleton className="h-8 w-8 rounded-full" />
                     <div>
                       <Skeleton className="h-4 w-24" />
@@ -44,10 +51,10 @@ const TableSkeleton = () => {
                 <td className="p-2 text-right">
                   <Skeleton className="ml-auto h-4 w-24" />
                 </td>
-                <td className="p-2 text-right">
+                <td className="hidden p-2 text-right sm:table-cell">
                   <Skeleton className="ml-auto h-4 w-32" />
                 </td>
-                <td className="p-2 text-right">
+                <td className="hidden p-2 text-right sm:table-cell">
                   <Skeleton className="ml-auto h-4 w-32" />
                 </td>
                 <td className="p-2 text-right">

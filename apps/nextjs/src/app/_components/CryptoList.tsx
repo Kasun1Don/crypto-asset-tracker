@@ -98,7 +98,8 @@ const CryptoList = ({
                       className={`${sortDir === "asc" ? "rotate-180" : ""}`}
                     />
                   )}
-                  # Rank
+                  <span className="hidden sm:inline"># Rank</span>
+                  <span className="sm:hidden">#</span>
                 </div>
               </th>
               <th

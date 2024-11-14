@@ -23,11 +23,15 @@ const CryptoTableRow = ({ crypto }: CryptoTableRowProps) => {
     <tr className="border-b hover:bg-gray-400">
       <td className="min-w-16 p-2">{crypto.cmc_rank}</td>
       <td className="max-w-10 p-2 sm:max-w-60">
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex items-center gap-4">
           {/* pass symbol prop to CryptoIcon component */}
           <CryptoIcon symbol={crypto.symbol} />
           <div>
-            <div className="font-medium">{crypto.name}</div>
+            <div className="font-medium">
+              {/* on mobile show symbol, on desktop show name */}
+              <span className="sm:hidden">{crypto.symbol}</span>
+              <span className="hidden sm:inline">{crypto.name}</span>
+            </div>
             <div className="text-sm text-gray-500">
               {/* on mobile hide symbol and show market cap */}
               <span className="sm:hidden">
